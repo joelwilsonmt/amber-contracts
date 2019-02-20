@@ -1,4 +1,5 @@
 var mongoose = require('./../config/db-config');
+const findOrCreate = require('mongoose-find-or-create');
 
 UserSchema = mongoose.Schema(
     {
@@ -14,6 +15,7 @@ UserSchema = mongoose.Schema(
       }]
     },
     { collection: 'users' });
+UserSchema.plugin(findOrCreate);
 
 var User = mongoose.model('User', UserSchema);
 
