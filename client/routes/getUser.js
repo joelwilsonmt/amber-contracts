@@ -8,12 +8,24 @@ var User = require('../models/user');
 //if (err) new User({publicAddress: req.body.publicAddress})
 router.put('/', function (req, res) {
   console.log("getting user" + " @ " + new Date() + "----------------------------------");
-
-  User.find(req.body)
-    .then(function (user) {
-        console.log("find user complete");
+  console.log(req.body);
+  var data = req.body;
+  new User({
+      username:data.username,
+      publicAddress: data.publicAddress
+    }).save(function (err, user) {
+        if (err) {
+              console.log(err);
+              res.sendStatus(400);
+            }
+        console.log("Sending user back to client");
         res.status(200).send(user);
-    }); //closes exec
+    });
+  // User.find(req.body)
+  //   .then(function (user) {
+  //       console.log("find user complete");
+  //       res.status(200).send(user);
+  //   }); //closes exec
 }); //closes router.put
 
 module.exports = router;

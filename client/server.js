@@ -15,9 +15,8 @@ app.use(cors());
 app.use('/getUser', getUser);
 app.use('/addContract', addContract);
 
-
 let port = process.env.PORT || 3001;
 
 http.listen(port, function(){
-  console.log('listening on *:' + port);
+  console.log('listening on *: ' + port);
 });

@@ -40,27 +40,12 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
-import Web3 from 'web3';
-
-const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
-
-
-
 
 class Dashboard extends React.Component {
   state = {
-    value: 0,
-    publicAddress: ''
+    value: 0
   };
-  componentWillMount() {
-    web3.eth.getAccounts().then(
-      (accounts) => {
-        this.setState({
-          publicAddress: accounts[0]
-        });
-      }
-    );
-  }
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -72,7 +57,6 @@ class Dashboard extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <p>Current Account: {this.state.publicAddress}</p>
         <GridContainer>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
@@ -139,6 +123,49 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
+        </GridContainer>
+
+        <GridContainer>
+            <CustomTabs
+              title="Quick View:"
+              headerColor="primary"
+              tabs={[
+                {
+                  tabName: "Pending Contracts",
+                  tabIcon: Schedule,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[0, 3]}
+                      tasksIndexes={[0, 1, 2, 3]}
+                      tasks={bugs}
+                    />
+                  )
+                },
+                {
+                  tabName: "All Open Contracts",
+                  tabIcon: ViewList,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[0]}
+                      tasksIndexes={[0, 1]}
+                      tasks={website}
+                    />
+                  )
+                },
+                {
+                  tabName: "Completed Contracts",
+                  tabIcon: Check,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[1]}
+                      tasksIndexes={[0, 1, 2]}
+                      tasks={server}
+                    />
+                  )
+                }
+              ]}
+            />
+
         </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
@@ -217,48 +244,6 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-        </GridContainer>
-        <GridContainer>
-            <CustomTabs
-              title="Quick View:"
-              headerColor="primary"
-              tabs={[
-                {
-                  tabName: "Pending Contracts",
-                  tabIcon: Schedule,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
-                    />
-                  )
-                },
-                {
-                  tabName: "All Open Contracts",
-                  tabIcon: ViewList,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
-                  )
-                },
-                {
-                  tabName: "Completed Contracts",
-                  tabIcon: Check,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
-                    />
-                  )
-                }
-              ]}
-            />
-
         </GridContainer>
       </div>
     );
