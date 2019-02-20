@@ -1,15 +1,22 @@
 {
-  "name": "material-dashboard-react",
-  "version": "1.6.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "name": "amber-contracts",
+  "version": "1.0.0",
+  "description": "Amber Contracts by the Amber Contracts Team",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
     "@material-ui/core": "3.9.2",
     "@material-ui/icons": "3.0.2",
+    "axios": "^0.18.0",
     "chartist": "0.10.1",
     "classnames": "2.2.6",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "history": "4.7.2",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.3.14",
+    "nodemon": "^1.18.9",
     "perfect-scrollbar": "1.4.0",
     "prettier": "1.16.4",
     "prop-types": "15.7.1",
@@ -19,7 +26,8 @@
     "react-google-maps": "9.4.5",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
-    "react-swipeable-views": "0.13.1"
+    "react-swipeable-views": "0.13.1",
+    "web3": "^1.0.0-beta.46"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,12 +45,6 @@
     "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
-  },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
   "optionalDependencies": {
     "@types/googlemaps": "3.30.16",
     "@types/markerclustererplus": "2.1.33",

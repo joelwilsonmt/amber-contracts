@@ -40,10 +40,12 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
+
 class Dashboard extends React.Component {
   state = {
     value: 0
   };
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -122,6 +124,49 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
         </GridContainer>
+
+        <GridContainer>
+            <CustomTabs
+              title="Quick View:"
+              headerColor="primary"
+              tabs={[
+                {
+                  tabName: "Pending Contracts",
+                  tabIcon: Schedule,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[0, 3]}
+                      tasksIndexes={[0, 1, 2, 3]}
+                      tasks={bugs}
+                    />
+                  )
+                },
+                {
+                  tabName: "All Open Contracts",
+                  tabIcon: ViewList,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[0]}
+                      tasksIndexes={[0, 1]}
+                      tasks={website}
+                    />
+                  )
+                },
+                {
+                  tabName: "Completed Contracts",
+                  tabIcon: Check,
+                  tabContent: (
+                    <Tasks
+                      checkedIndexes={[1]}
+                      tasksIndexes={[0, 1, 2]}
+                      tasks={server}
+                    />
+                  )
+                }
+              ]}
+            />
+
+        </GridContainer>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <Card chart>
@@ -199,48 +244,6 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-        </GridContainer>
-        <GridContainer>
-            <CustomTabs
-              title="Quick View:"
-              headerColor="primary"
-              tabs={[
-                {
-                  tabName: "Pending Contracts",
-                  tabIcon: Schedule,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
-                    />
-                  )
-                },
-                {
-                  tabName: "All Open Contracts",
-                  tabIcon: ViewList,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
-                  )
-                },
-                {
-                  tabName: "Completed Contracts",
-                  tabIcon: Check,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
-                    />
-                  )
-                }
-              ]}
-            />
-
         </GridContainer>
       </div>
     );
