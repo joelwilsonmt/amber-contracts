@@ -19,6 +19,10 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
+import Web3 from 'web3';
+const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+
+
 const switchRoutes = (
   <Switch>
     {dashboardRoutes.map((prop, key) => {
@@ -33,7 +37,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobileOpen: false
+      mobileOpen: false,
+      publicAddress: ''
     };
     this.resizeFunction = this.resizeFunction.bind(this);
   }
@@ -53,6 +58,12 @@ class App extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
+    web3.eth.getAccounts().then(
+      (accounts) => {
+        this.setState({
+          publicAddress: accounts[0]
+        });
+      });
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
@@ -82,6 +93,7 @@ class App extends React.Component {
           <Header
             routes={dashboardRoutes}
             handleDrawerToggle={this.handleDrawerToggle}
+            publicAddress={this.state.publicAddress}
             {...rest}
           />
           {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}

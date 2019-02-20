@@ -40,10 +40,27 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
+import Web3 from 'web3';
+
+const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+
+
+
+
 class Dashboard extends React.Component {
   state = {
-    value: 0
+    value: 0,
+    publicAddress: ''
   };
+  componentWillMount() {
+    web3.eth.getAccounts().then(
+      (accounts) => {
+        this.setState({
+          publicAddress: accounts[0]
+        });
+      }
+    );
+  }
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -55,6 +72,7 @@ class Dashboard extends React.Component {
     const { classes } = this.props;
     return (
       <div>
+        <p>Current Account: {this.state.publicAddress}</p>
         <GridContainer>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
