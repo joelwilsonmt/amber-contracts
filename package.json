@@ -1,0 +1,26 @@
+{
+  "name": "amber-contracts",
+  "version": "1.0.0",
+  "description": "Smart Contract Deployment Application",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelwilsonmt/amber-contracts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joelwilsonmt/amber-contracts/issues"
+  },
+  "homepage": "https://github.com/joelwilsonmt/amber-contracts#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "^2.1.2",
+    "web3": "^1.0.0-beta.46"
+  }
+}
