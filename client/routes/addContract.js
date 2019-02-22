@@ -1,6 +1,6 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var User = require('../models/user');
+var User = require("../models/user");
 //req.body.publicAddress
 //User.findOne(req.body.publicAddress)
 //.then(err, user)
@@ -20,8 +20,6 @@ var User = require('../models/user');
 //   });
 // }
 //other possible statuses: in hiatus, declined, seen/unseen
-router.put('/', function (req, res) {
-
-}); //closes router.put
+router.put("/", function(req, res) {}); //closes router.put
 
 module.exports = router;
