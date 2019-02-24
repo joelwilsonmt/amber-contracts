@@ -5,18 +5,22 @@ const cors = require("cors");
 
 var getUser = require("./routes/getUser");
 var addContract = require("./routes/addContract");
+var runcommand = require("./routes/runcommand");
 
 var app = express();
 var http = require("http").Server(app);
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/getUser", getUser);
 app.use("/addContract", addContract);
+app.use("/runcommand", runcommand);
 
 let port = process.env.PORT || 3001;
 
 http.listen(port, function() {
-  console.log("listening on *: " + port);
+  console.log("-----------------------------listening on *: " + port +"-----------------------------");
 });

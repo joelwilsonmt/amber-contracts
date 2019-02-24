@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/joelwilsonmt/amber-contracts#readme",
   "dependencies": {
+    "node-cmd": "^3.0.0",
     "openzeppelin-solidity": "^2.1.2",
     "web3": "^1.0.0-beta.46"
   }

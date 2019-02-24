@@ -42,90 +42,47 @@ function UserProfile(props) {
         <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Add a New Contract</h4>
-              <p className={classes.cardCategoryWhite}>Fill in the contract information here</p>
+              <h4 className={classes.cardTitleWhite}>Rainy Day Contract</h4>
+              <p className={classes.cardCategoryWhite}>Fill in the rainy day contract information here</p>
             </CardHeader>
             <CardBody>
-
-                  <CustomInput
-                    labelText="Private Key (disabled)"
-                    id="company-disabled"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      disabled: true
-                    }}
-                  />
-
+              <p>This contract allows you to hold money for a rainy day in whichever city you specify. Once the weather report shows that it's raining, the money is transferred into your account and you are free to enjoy your rainy day.</p>
+              <p>
                   <CustomInput
                     labelText="Username"
                     id="username"
                     formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
+                      fullWidth: false
 
-                  <CustomInput
-                    labelText="Email address"
-                    id="email-address"
-                    formControlProps={{
-                      fullWidth: true
                     }}
                   />
+                would like to allocate
+                <CustomInput
+                  labelText="Amount in ETH"
+                  id="amount"
+                  formControlProps={{
+                    fullWidth: false
+                  }}
+                />
+              ETH into this rainy-day fund. When it rains in
 
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="First Name"
-                    id="first-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Last Name"
-                    id="last-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
                     labelText="City"
                     id="city"
                     formControlProps={{
-                      fullWidth: true
+                      fullWidth: false
                     }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
+                  />,
                   <CustomInput
                     labelText="Country"
                     id="country"
                     formControlProps={{
-                      fullWidth: true
+                      fullWidth: false
                     }}
                   />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Postal Code"
-                    id="postal-code"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
+                , the funds will be released to the creator to enjoy their rainy day.</p>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                  <InputLabel style={{ color: "#AAAAAA" }}>Chain Details</InputLabel>
                   <CustomInput
                     labelText="These are automatically fulfilled terms"
                     id="details"
@@ -141,7 +98,7 @@ function UserProfile(props) {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="primary">Update Profile</Button>
+              <Button color="primary">Deploy Contract</Button>
             </CardFooter>
           </Card>
         </GridItem>
