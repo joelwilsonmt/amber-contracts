@@ -1,28 +1,31 @@
-//use ownable from openzeppelin and escrow and safemath
+pragma solidity >=0.4.21 <0.6.0;
 
-pragma solidity ^0.5.2;
+import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 
-import './onering.sol';
-import './safeMath.sol';
-
-contract Dumb is Ownable {
-
+contract Dumb{
+    //Libs
     using SafeMath for uint256;
-
+    //Global
     address payable depositor;
-    address payable painter;
+    address payable creator;
     bool finished;
 
+    //Events
     event Deposited(address indexed payee, uint256 weiAmount);
-    event Withdrawn(address indexed painter, uint256 weiAmount);
+    event Withdrawn(address indexed creator, uint256 weiAmount);
     event FINISHED(bool);
 
     mapping(address => uint256) private _deposits;
 
-    constructor(address payable _depositor)public{
+    constructor(address payable _depositor, address payable _creator)public{
         depositor = _depositor;
-        painter = msg.sender;
+        creator = _creator;
         finished = false;
+    }
+
+    modifier isOwner(){
+        require(msg.sender == creator);
+        _;
     }
 
     modifier isDepositor(){
@@ -34,7 +37,6 @@ contract Dumb is Ownable {
         return _deposits[payee];
     }
 
-
     function deposit(address payee) public payable isDepositor{
         uint256 amount = msg.value;
         _deposits[payee] = _deposits[payee].add(amount);
@@ -42,30 +44,32 @@ contract Dumb is Ownable {
 
     }
 
-
-    function withdraw() public payable onlyOwner {
+    function withdraw() public payable isOwner {
         require(finished == true);
         uint256 balance = address(this).balance;
-        address(painter).transfer(address(this).balance);
-        emit Withdrawn(painter, balance);
+        address(creator).transfer(address(this).balance);
+        emit Withdrawn(creator, balance);
         selfdestruct(depositor);
     }
 
     function setFinished() public payable isDepositor{
-        //set value of finished to true must be depositor
         finished = true;
-
         emit FINISHED(finished);
-
     }
 
     function getBalance() public view returns(uint256){
         return address(this).balance;
     }
 
-    function cancel() public payable onlyOwner {
+    function cancel() public payable isOwner{
         selfdestruct(depositor);
     }
 
+    function seeOwner() public view returns(address){
+        return creator;
+    }
 
+    function seeDepositor() public view returns(address){
+        return depositor;
+    }
 }
