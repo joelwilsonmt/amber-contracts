@@ -1,4 +1,7 @@
-var mongoose = require("./../config/db-config");
+
+var mongoose = require('./../config/db-config');
+const findOrCreate = require('mongoose-find-or-create');
+
 
 UserSchema = mongoose.Schema(
   {
@@ -12,11 +15,11 @@ UserSchema = mongoose.Schema(
         recipientPublicAddress: String,
         ABI: [Object],
         status: [String] //like 'deployed', 'pending deposit', 'deposit in escrow', 'pending fundReleaseApproval', or 'inactive'
-      }
-    ]
-  },
-  { collection: "users" }
-);
+      }]
+    },
+    { collection: 'users' });
+UserSchema.plugin(findOrCreate);
+
 
 var User = mongoose.model("User", UserSchema);
 
