@@ -10,7 +10,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 // core components/views
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
+import CreateContract from "views/CreateContract/CreateContract.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
@@ -31,7 +31,7 @@ const dashboardRoutes = [
     sidebarName: "New Contract",
     navbarName: "Start a Contract",
     icon: AddCircle,
-    component: UserProfile
+    component: CreateContract
   },
   {
     path: "/table",
