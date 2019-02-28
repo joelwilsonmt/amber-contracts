@@ -65,7 +65,7 @@ class ControlledExpansionPanels extends React.Component {
             </Typography>
           </ExpansionPanelDetails>
 
-          <NavLink to="/ServiceAgreement" component="ServiceAgreement">
+          <NavLink to="/ServiceAgreement" component={ServiceAgreement}>
             <Button
               variant="outlined"
               size="medium"

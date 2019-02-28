@@ -79,7 +79,7 @@ const Sidebar = ({ ...props }) => {
     <div className={classes.logo}>
       <a href="#" className={classes.logoLink}>
         <div className={classes.logoImage}>
-          {logo ? <img src={logo} alt="logo" className={classes.img} />: null}
+          {logo ? <img src={logo} alt="logo" className={classes.img} /> : null}
         </div>
       </a>
     </div>
