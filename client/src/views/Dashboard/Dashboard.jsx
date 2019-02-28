@@ -30,7 +30,6 @@ import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 
-
 import { bugs, website, server } from "variables/general.jsx";
 
 import {
@@ -40,7 +39,6 @@ import {
 } from "variables/charts.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
-
 
 class Dashboard extends React.Component {
   state = {
@@ -70,7 +68,6 @@ class Dashboard extends React.Component {
                   49 <small>TOTAL</small>
                 </h3>
               </CardHeader>
-
             </Card>
           </GridItem>
           <GridItem xs={12} sm={6} md={3}>
@@ -80,7 +77,9 @@ class Dashboard extends React.Component {
                   <AttachMoney />
                 </CardIcon>
                 <p className={classes.cardCategory}>Revenue</p>
-                <h3 className={classes.cardTitle}>.375 <small>ETH</small></h3>
+                <h3 className={classes.cardTitle}>
+                  .375 <small>ETH</small>
+                </h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
