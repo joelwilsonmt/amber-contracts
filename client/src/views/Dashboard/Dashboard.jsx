@@ -96,13 +96,13 @@ class Dashboard extends React.Component {
                 <CardIcon color="danger">
                   <Icon>info_outline</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
+                <p className={classes.cardCategory}>Contracts in Progress</p>
+                <h3 className={classes.cardTitle}>3</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <LocalOffer />
-                  Tracked from Github
+                  Tracked from Amber Contracts
                 </div>
               </CardFooter>
             </Card>
@@ -113,8 +113,8 @@ class Dashboard extends React.Component {
                 <CardIcon color="info">
                   <Accessibility />
                 </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
+                <p className={classes.cardCategory}>People in Contract With</p>
+                <h3 className={classes.cardTitle}>4</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -129,39 +129,57 @@ class Dashboard extends React.Component {
         <GridContainer>
             <CustomTabs
               title="Quick View:"
-              headerColor="primary"
+              headerColor="warning"
               tabs={[
                 {
                   tabName: "Pending Contracts",
                   tabIcon: Schedule,
                   tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
-                    />
+                    <GridItem xs={12} sm={12} md={12}>
+                      <Table
+                            tableHeaderColor="danger"
+                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With"]}
+                            tableData={[
+                              ["1", "Dakota Rice", "$36,738", "Niger"],
+                              ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                              ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
+                              ]}
+                          />
+                    </GridItem>
                   )
                 },
                 {
                   tabName: "All Open Contracts",
                   tabIcon: ViewList,
                   tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
-                    />
+                    <GridItem xs={12} sm={12} md={12}>
+                      <Table
+                            tableHeaderColor="danger"
+                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With"]}
+                            tableData={[
+                              ["1", "Dakota Rice", "$36,738", "Niger"],
+                              ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                              ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
+                              ]}
+                          />
+                    </GridItem>
                   )
                 },
                 {
                   tabName: "Completed Contracts",
                   tabIcon: Check,
                   tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
-                    />
+                    <GridItem xs={12} sm={12} md={12}>
+                      <Table
+                            tableHeaderColor="danger"
+                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With", "Date Closed"]}
+                            tableData={[
+                              ["1", "Dakota Rice", "$36,738", "Niger", "1/24/19"],
+                              ["2", "Minerva Hooper", "$23,789", "Curaçao", "Jan 31, 2034"],
+                              ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Feb 29, 2020"],
+                              ]}
+                          />
+                    </GridItem>
                   )
                 }
               ]}
