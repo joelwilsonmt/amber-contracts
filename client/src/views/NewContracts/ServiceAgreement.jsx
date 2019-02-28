@@ -53,12 +53,21 @@ class ServiceAgreement extends React.Component {
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <Card>
-              <CardHeader color="warning">
+              <CardHeader color="info">
                 <h4>Service Agreement</h4>
                 <p>Create New</p>
               </CardHeader>
               <CardBody>
+              <p> I, (input public key from database) agree to perform
                 <CustomInput
+                labelText="Service"
+                id="service"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+              </p>
+              {/*  <CustomInput
                   labelText="Private Key (disabled)"
                   id="company-disabled"
                   formControlProps={{
@@ -69,13 +78,7 @@ class ServiceAgreement extends React.Component {
                   }}
                 />
 
-                <CustomInput
-                  labelText="Username"
-                  id="username"
-                  formControlProps={{
-                    fullWidth: true
-                  }}
-                />
+
 
                 <CustomInput
                   labelText="Email address"
@@ -151,10 +154,10 @@ class ServiceAgreement extends React.Component {
                       }}
                     />
                   </GridItem>
-                </GridContainer>
+                </GridContainer>*/}
               </CardBody>
               <CardFooter>
-                <Button color="primary">Update Profile</Button>
+                <Button color="info">Deploy Contract</Button>
               </CardFooter>
             </Card>
           </GridItem>
