@@ -126,64 +126,91 @@ class Dashboard extends React.Component {
         </GridContainer>
 
         <GridContainer>
-            <CustomTabs
-              title="Quick View:"
-              headerColor="warning"
-              tabs={[
-                {
-                  tabName: "Pending Contracts",
-                  tabIcon: Schedule,
-                  tabContent: (
-                    <GridItem xs={12} sm={12} md={12}>
-                      <Table
-                            tableHeaderColor="danger"
-                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With"]}
-                            tableData={[
-                              ["1", "Dakota Rice", "$36,738", "Niger"],
-                              ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                              ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                              ]}
-                          />
-                    </GridItem>
-                  )
-                },
-                {
-                  tabName: "All Open Contracts",
-                  tabIcon: ViewList,
-                  tabContent: (
-                    <GridItem xs={12} sm={12} md={12}>
-                      <Table
-                            tableHeaderColor="danger"
-                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With"]}
-                            tableData={[
-                              ["1", "Dakota Rice", "$36,738", "Niger"],
-                              ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                              ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                              ]}
-                          />
-                    </GridItem>
-                  )
-                },
-                {
-                  tabName: "Completed Contracts",
-                  tabIcon: Check,
-                  tabContent: (
-                    <GridItem xs={12} sm={12} md={12}>
-                      <Table
-                            tableHeaderColor="danger"
-                            tableHead={["Contract Address", "Contract Type", "Amount", "Entered Into With", "Date Closed"]}
-                            tableData={[
-                              ["1", "Dakota Rice", "$36,738", "Niger", "1/24/19"],
-                              ["2", "Minerva Hooper", "$23,789", "Curaçao", "Jan 31, 2034"],
-                              ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Feb 29, 2020"],
-                              ]}
-                          />
-                    </GridItem>
-                  )
-                }
-              ]}
-            />
-
+          <CustomTabs
+            title="Quick View:"
+            headerColor="warning"
+            tabs={[
+              {
+                tabName: "Pending Contracts",
+                tabIcon: Schedule,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger"],
+                        ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                        ["3", "Sage Rodriguez", "$56,142", "Netherlands"]
+                      ]}
+                    />
+                  </GridItem>
+                )
+              },
+              {
+                tabName: "All Open Contracts",
+                tabIcon: ViewList,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger"],
+                        ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                        ["3", "Sage Rodriguez", "$56,142", "Netherlands"]
+                      ]}
+                    />
+                  </GridItem>
+                )
+              },
+              {
+                tabName: "Completed Contracts",
+                tabIcon: Check,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With",
+                        "Date Closed"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger", "1/24/19"],
+                        [
+                          "2",
+                          "Minerva Hooper",
+                          "$23,789",
+                          "Curaçao",
+                          "Jan 31, 2034"
+                        ],
+                        [
+                          "3",
+                          "Sage Rodriguez",
+                          "$56,142",
+                          "Netherlands",
+                          "Feb 29, 2020"
+                        ]
+                      ]}
+                    />
+                  </GridItem>
+                )
+              }
+            ]}
+          />
         </GridContainer>
       {/*  <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
