@@ -48,14 +48,14 @@ const dashboardRoutes = [
     navbarName: "Notifications",
     icon: Notifications,
     component: NotificationsPage
-  },
-  {
-    path: "/ServiceAgreement",
-    sidebarName: "",
-    navbarName: "",
-    icon: "SERVICE",
-    component: ServiceAgreement
   }
+  // {
+  //   path: "/ServiceAgreement",
+  //   sidebarName: "",
+  //   navbarName: "",
+  //   icon: "SERVICE",
+  //   component: ServiceAgreement
+  // }
   // { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 
