@@ -52,7 +52,6 @@ class ControlledExpansionPanels extends React.Component {
     const { expanded } = this.state;
 
     return (
-      <NavLink to="/ServiceAgreement"/>
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
