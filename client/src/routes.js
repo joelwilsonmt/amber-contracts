@@ -9,15 +9,17 @@ import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
+import NewContracts from "views/NewContracts/NewContractsView.jsx";
 import TableList from "views/TableList/TableList.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
-import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
+import ServiceAgreement from "views/NewContracts/ServiceAgreement.jsx";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // core components/views for RTL layout
-import RTLPage from "views/RTLPage/RTLPage.jsx";
+
 
 const dashboardRoutes = [
   {
@@ -29,11 +31,17 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/user",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
+    path: "/NewContracts",
+    name: "New Contracts",
     icon: Person,
-    component: UserProfile,
+    component: NewContracts,
+    layout: "/admin"
+  },
+  {
+    path: "/ServiceAgreement",
+    name: "New Service Agreement",
+    icon: Person,
+    component: ServiceAgreement,
     layout: "/admin"
   },
   {
@@ -76,22 +84,8 @@ const dashboardRoutes = [
     component: NotificationsPage,
     layout: "/admin"
   },
-  {
-    path: "/upgrade-to-pro",
-    name: "Upgrade To PRO",
-    rtlName: "التطور للاحترافية",
-    icon: Unarchive,
-    component: UpgradeToPro,
-    layout: "/admin"
-  },
-  {
-    path: "/rtl-page",
-    name: "RTL Support",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Language,
-    component: RTLPage,
-    layout: "/rtl"
-  }
+
+
 ];
 
 export default dashboardRoutes;

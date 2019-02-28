@@ -12,6 +12,15 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardAvatar from "components/Card/CardAvatar.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpansionPanelView from "./ExpansionPanelView.jsx";
+import { Router, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { NavLink } from "react-router-dom";
+import routes from "../../routes.js"
 
 import avatar from "assets/img/faces/marc.jpg";
 
@@ -34,18 +43,25 @@ const styles = {
   }
 };
 
-function UserProfile(props) {
-  const { classes } = props;
+
+
+class ServiceAgreement extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
   return (
     <div>
       <GridContainer>
         <GridItem xs={12} sm={12} md={12}>
           <Card>
-            <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Add a New Contract</h4>
-              <p className={classes.cardCategoryWhite}>Fill in the contract information here</p>
+            <CardHeader color="warning">
+              <h4>Service Agreement</h4>
+              <p>Create New</p>
             </CardHeader>
             <CardBody>
+
+
 
                   <CustomInput
                     labelText="Private Key (disabled)"
@@ -148,6 +164,7 @@ function UserProfile(props) {
       </GridContainer>
     </div>
   );
+ }
 }
 
-export default withStyles(styles)(UserProfile);
+export default withStyles(styles)(ServiceAgreement);

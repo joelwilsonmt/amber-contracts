@@ -19,6 +19,7 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
+
 import Web3 from 'web3';
 const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
