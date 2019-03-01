@@ -20,8 +20,8 @@ import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { NavLink } from "react-router-dom";
 import routes from "../../routes.js";
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from "@material-ui/core/TextField";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 import avatar from "assets/img/faces/marc.jpg";
 
@@ -44,11 +44,11 @@ const styles = {
   },
   textField: {
     marginLeft: "0",
-    marginRight: "0",
+    marginRight: "0"
   },
   dense: {
-    marginTop: 16,
-}
+    marginTop: 16
+  }
 };
 
 class ServiceAgreement extends React.Component {
@@ -66,36 +66,39 @@ class ServiceAgreement extends React.Component {
                 <p>Create New</p>
               </CardHeader>
               <CardBody>
-               I, (input public key from database) agree to
-               <br/>
-               <TextField
-                     id="Service"
-                     label="Service Provided"
-                     margin="normal"
-                     variant="outlined"
-                   />
-              <br/>
-              <br/>
-              <br/>
-              This person or persons:
-              <br/>
-              <TextField
-                    id="Second Party"
-                    label="Second Party"
-                    margin="normal"
-                    variant="outlined"
-                  />
-                  <br/>
-              Agrees to pay
-              <br/>
-              <TextField
-                    id="ETH"
-                    label="Ether"
-                    margin="normal"
-                    variant="outlined"
-                    InputProps={{
-                    startAdornment: <InputAdornment position="start">Ξ</InputAdornment>,
-                  }}/>
+                I, (input public key from database) agree to
+                <br />
+                {/* <TextField
+                  id="Service"
+                  label="Service Provided"
+                  margin="normal"
+                  variant="outlined"
+                /> */}
+                <br />
+                <br />
+                <br />
+                This person or persons:
+                <br />
+                <TextField
+                  id="Second Party"
+                  label="Second Party"
+                  margin="normal"
+                  variant="outlined"
+                />
+                <br />
+                Agrees to pay
+                <br />
+                {/* <TextField
+                  id="ETH"
+                  label="Ether"
+                  margin="normal"
+                  variant="outlined"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">Ξ</InputAdornment>
+                    )
+                  }}
+                /> */}
               </CardBody>
               <CardFooter>
                 <Button color="danger">Deploy Contract</Button>

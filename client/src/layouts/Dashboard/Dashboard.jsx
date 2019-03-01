@@ -16,16 +16,19 @@ import dashboardRoutes from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 import ServiceAgreement from "views/NewContracts/ServiceAgreement.jsx";
+import PendingService from "views/NewContracts/PendingService.jsx";
 import RainyDay from "views/NewContracts/RainyDay.jsx";
-
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
-
-{/*import web3 from "utils/web3.js";
+import web3 from "utils/web3.js";
+{
+  /*
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
-Here I'm pulling in the serviceagreement route, I think we can probably map this somehow and make it a little cleaner.*/}
+Here I'm pulling in the serviceagreement route, I think we can probably map this somehow and make it a little cleaner.*/
+}
+
 const switchRoutes = (
   <Switch>
     {dashboardRoutes.map((prop, key) => {
@@ -35,7 +38,7 @@ const switchRoutes = (
     })}
     <Route path="/RainyDay" component={RainyDay} />;
     <Route path="/ServiceAgreement" component={ServiceAgreement} />;
-
+    <Route path="/PendingService" component={PendingService} />;
   </Switch>
 );
 
@@ -64,11 +67,13 @@ class App extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
-    {/*web3.eth.getAccounts().then(accounts => {
-      this.setState({
-        publicAddress: accounts[0]
+    {
+      web3.eth.getAccounts().then(accounts => {
+        this.setState({
+          publicAddress: accounts[0]
+        });
       });
-    });*/}
+    }
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {

@@ -14,7 +14,6 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import web3 from "./../../utils/web3.js";
 
-
 import avatar from "assets/img/faces/marc.jpg";
 console.log(web3.eth);
 const styles = {
@@ -37,69 +36,74 @@ const styles = {
 };
 
 const abi = [
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_depositor",
-				"type": "address"
-			}
-		],
-		"name": "creator",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "_newEscrow",
-				"type": "address"
-			}
-		],
-		"name": "NewContract",
-		"type": "event"
-	}
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "_depositor",
+        type: "address"
+      }
+    ],
+    name: "creator",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        name: "_newEscrow",
+        type: "address"
+      }
+    ],
+    name: "NewContract",
+    type: "event"
+  }
 ];
 
 class CreateContract extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = { value: "" };
   }
-  handleChange = (event) => {
-    this.setState({value: event.target.value});
-  }
-  handleSubmit = (event) => {
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+  handleSubmit = event => {
     event.preventDefault();
-    this.setState({loading: true});
+    this.setState({ loading: true });
     const Contract = new web3.eth.Contract(abi);
     console.log("contract, ", Contract);
-  }
-  render(){
+  };
+  render() {
     return (
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={12}>
             <form onSubmit={this.handleSubmit}>
-            <Card>
-              <CardHeader color="primary">
-                <h4 >Add a New Escrow Contract</h4>
-                <p >Fill in the payor's public ETH address here</p>
-              </CardHeader>
-              <CardBody>
-              <label>
-                Payor's ETH Address:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-              </label><br/>
-              </CardBody>
-              <CardFooter>
-                <input type="submit" value="Submit" />
-              </CardFooter>
-            </Card>
+              <Card>
+                <CardHeader color="primary">
+                  <h4>Add a New Escrow Contract</h4>
+                  <p>Fill in the payor's public ETH address here</p>
+                </CardHeader>
+                <CardBody>
+                  <label>
+                    Payor's ETH Address:
+                    <input
+                      type="text"
+                      value={this.state.value}
+                      onChange={this.handleChange}
+                    />
+                  </label>
+                  <br />
+                </CardBody>
+                <CardFooter>
+                  <input type="submit" value="Submit" />
+                </CardFooter>
+              </Card>
             </form>
           </GridItem>
         </GridContainer>

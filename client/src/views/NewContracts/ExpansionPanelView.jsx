@@ -8,7 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Button from "../../components/CustomButtons/Button.jsx";
 import ServiceAgreement from "./ServiceAgreement.jsx";
-import RainyDay from "./RainyDay.jsx"
+import PendingService from "./PendingService.jsx";
+import RainyDay from "./RainyDay.jsx";
 import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
@@ -76,6 +77,16 @@ class ControlledExpansionPanels extends React.Component {
               Create This Contract
             </Button>
           </NavLink>
+          <NavLink to="/PendingService" component={PendingService}>
+            <Button
+              variant="outlined"
+              size="medium"
+              color="warning"
+              className={classes.centered}
+            >
+              Add Payment
+            </Button>
+          </NavLink>
         </ExpansionPanel>
         <ExpansionPanel
           expanded={expanded === "panel2"}
@@ -96,15 +107,15 @@ class ControlledExpansionPanels extends React.Component {
             </Typography>
           </ExpansionPanelDetails>
           <NavLink to="/RainyDay" component={RainyDay}>
-          <Button
-            variant="outlined"
-            size="medium"
-            color="warning"
-            justify="center"
-            className={classes.centered}
-          >
-            Create This Contract
-          </Button>
+            <Button
+              variant="outlined"
+              size="medium"
+              color="warning"
+              justify="center"
+              className={classes.centered}
+            >
+              Create This Contract
+            </Button>
           </NavLink>
         </ExpansionPanel>
       </div>
