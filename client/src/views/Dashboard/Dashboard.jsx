@@ -40,7 +40,6 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
-
 class Dashboard extends React.Component {
   state = {
     value: 0
@@ -69,7 +68,6 @@ class Dashboard extends React.Component {
                   49 <small>TOTAL</small>
                 </h3>
               </CardHeader>
-
             </Card>
           </GridItem>
           <GridItem xs={12} sm={6} md={3}>
@@ -79,7 +77,9 @@ class Dashboard extends React.Component {
                   <AttachMoney />
                 </CardIcon>
                 <p className={classes.cardCategory}>Revenue</p>
-                <h3 className={classes.cardTitle}>.375 <small>ETH</small></h3>
+                <h3 className={classes.cardTitle}>
+                  .375 <small>ETH</small>
+                </h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -95,13 +95,13 @@ class Dashboard extends React.Component {
                 <CardIcon color="danger">
                   <Icon>info_outline</Icon>
                 </CardIcon>
-                <p className={classes.cardCategory}>Fixed Issues</p>
-                <h3 className={classes.cardTitle}>75</h3>
+                <p className={classes.cardCategory}>Contracts in Progress</p>
+                <h3 className={classes.cardTitle}>3</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
                   <LocalOffer />
-                  Tracked from Github
+                  Tracked from Amber Contracts
                 </div>
               </CardFooter>
             </Card>
@@ -112,8 +112,8 @@ class Dashboard extends React.Component {
                 <CardIcon color="info">
                   <Accessibility />
                 </CardIcon>
-                <p className={classes.cardCategory}>Followers</p>
-                <h3 className={classes.cardTitle}>+245</h3>
+                <p className={classes.cardCategory}>People in Contract With</p>
+                <h3 className={classes.cardTitle}>4</h3>
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
@@ -126,48 +126,93 @@ class Dashboard extends React.Component {
         </GridContainer>
 
         <GridContainer>
-            <CustomTabs
-              title="Quick View:"
-              headerColor="primary"
-              tabs={[
-                {
-                  tabName: "Pending Contracts",
-                  tabIcon: Schedule,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0, 3]}
-                      tasksIndexes={[0, 1, 2, 3]}
-                      tasks={bugs}
+          <CustomTabs
+            title="Quick View:"
+            headerColor="warning"
+            tabs={[
+              {
+                tabName: "Pending Contracts",
+                tabIcon: Schedule,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger"],
+                        ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                        ["3", "Sage Rodriguez", "$56,142", "Netherlands"]
+                      ]}
                     />
-                  )
-                },
-                {
-                  tabName: "All Open Contracts",
-                  tabIcon: ViewList,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[0]}
-                      tasksIndexes={[0, 1]}
-                      tasks={website}
+                  </GridItem>
+                )
+              },
+              {
+                tabName: "All Open Contracts",
+                tabIcon: ViewList,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger"],
+                        ["2", "Minerva Hooper", "$23,789", "Curaçao"],
+                        ["3", "Sage Rodriguez", "$56,142", "Netherlands"]
+                      ]}
                     />
-                  )
-                },
-                {
-                  tabName: "Completed Contracts",
-                  tabIcon: Check,
-                  tabContent: (
-                    <Tasks
-                      checkedIndexes={[1]}
-                      tasksIndexes={[0, 1, 2]}
-                      tasks={server}
+                  </GridItem>
+                )
+              },
+              {
+                tabName: "Completed Contracts",
+                tabIcon: Check,
+                tabContent: (
+                  <GridItem xs={12} sm={12} md={12}>
+                    <Table
+                      tableHeaderColor="danger"
+                      tableHead={[
+                        "Contract Address",
+                        "Contract Type",
+                        "Amount",
+                        "Entered Into With",
+                        "Date Closed"
+                      ]}
+                      tableData={[
+                        ["1", "Dakota Rice", "$36,738", "Niger", "1/24/19"],
+                        [
+                          "2",
+                          "Minerva Hooper",
+                          "$23,789",
+                          "Curaçao",
+                          "Jan 31, 2034"
+                        ],
+                        [
+                          "3",
+                          "Sage Rodriguez",
+                          "$56,142",
+                          "Netherlands",
+                          "Feb 29, 2020"
+                        ]
+                      ]}
                     />
-                  )
-                }
-              ]}
-            />
-
+                  </GridItem>
+                )
+              }
+            ]}
+          />
         </GridContainer>
-        <GridContainer>
+      {/*  <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <Card chart>
               <CardHeader color="primary">
@@ -244,7 +289,7 @@ class Dashboard extends React.Component {
               </CardFooter>
             </Card>
           </GridItem>
-        </GridContainer>
+        </GridContainer> */}
       </div>
     );
   }

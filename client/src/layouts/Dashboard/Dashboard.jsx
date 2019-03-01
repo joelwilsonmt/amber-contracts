@@ -15,14 +15,17 @@ import Sidebar from "components/Sidebar/Sidebar.jsx";
 import dashboardRoutes from "routes/dashboard.jsx";
 
 import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
+import ServiceAgreement from "views/NewContracts/ServiceAgreement.jsx";
+import RainyDay from "views/NewContracts/RainyDay.jsx";
+
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
-import Web3 from 'web3';
-const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
+{/*import web3 from "utils/web3.js";
+// const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
 
-
+Here I'm pulling in the serviceagreement route, I think we can probably map this somehow and make it a little cleaner.*/}
 const switchRoutes = (
   <Switch>
     {dashboardRoutes.map((prop, key) => {
@@ -30,6 +33,9 @@ const switchRoutes = (
         return <Redirect from={prop.path} to={prop.to} key={key} />;
       return <Route path={prop.path} component={prop.component} key={key} />;
     })}
+    <Route path="/RainyDay" component={RainyDay} />;
+    <Route path="/ServiceAgreement" component={ServiceAgreement} />;
+
   </Switch>
 );
 
@@ -38,7 +44,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       mobileOpen: false,
-      publicAddress: ''
+      publicAddress: ""
     };
     this.resizeFunction = this.resizeFunction.bind(this);
   }
@@ -58,12 +64,11 @@ class App extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
-    web3.eth.getAccounts().then(
-      (accounts) => {
-        this.setState({
-          publicAddress: accounts[0]
-        });
+    {/*web3.eth.getAccounts().then(accounts => {
+      this.setState({
+        publicAddress: accounts[0]
       });
+    });*/}
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
@@ -83,7 +88,9 @@ class App extends React.Component {
         <Sidebar
           routes={dashboardRoutes}
           logo={"https://i.imgur.com/UdI5yFK.png"}
-          image={"https://backgroundcheckall.com/wp-content/uploads/2017/12/amber-background-11.jpg"}
+          image={
+            "https://backgroundcheckall.com/wp-content/uploads/2017/12/amber-background-11.jpg"
+          }
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
           color="blue"
