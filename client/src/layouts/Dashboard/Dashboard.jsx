@@ -36,9 +36,6 @@ const switchRoutes = (
         return <Redirect from={prop.path} to={prop.to} key={key} />;
       return <Route path={prop.path} component={prop.component} key={key} />;
     })}
-    <Route path="/RainyDay" component={RainyDay} />;
-    <Route path="/ServiceAgreement" component={ServiceAgreement} />;
-    <Route path="/PendingService" component={PendingService} />;
   </Switch>
 );
 
@@ -54,9 +51,6 @@ class App extends React.Component {
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
-  getRoute() {
-    return this.props.location.pathname !== "/maps";
-  }
   resizeFunction() {
     if (window.innerWidth >= 960) {
       this.setState({ mobileOpen: false });
@@ -67,13 +61,12 @@ class App extends React.Component {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
     window.addEventListener("resize", this.resizeFunction);
-    {
-      web3.eth.getAccounts().then(accounts => {
-        this.setState({
-          publicAddress: accounts[0]
-        });
+
+    web3.eth.getAccounts().then(accounts => {
+      this.setState({
+        publicAddress: accounts[0]
       });
-    }
+    });
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
@@ -87,7 +80,7 @@ class App extends React.Component {
     window.removeEventListener("resize", this.resizeFunction);
   }
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, ...rest } = this.props;//assigns classes to containing divs for automatic styling
     return (
       <div className={classes.wrapper}>
         <Sidebar
@@ -108,15 +101,10 @@ class App extends React.Component {
             publicAddress={this.state.publicAddress}
             {...rest}
           />
-          {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-          {this.getRoute() ? (
             <div className={classes.content}>
               <div className={classes.container}>{switchRoutes}</div>
             </div>
-          ) : (
-            <div className={classes.map}>{switchRoutes}</div>
-          )}
-          {this.getRoute() ? <Footer /> : null}
+        <Footer />
         </div>
       </div>
     );

@@ -7,13 +7,11 @@ const findOrCreate = require('mongoose-find-or-create')
 
 router.put("/", function(req, res) {
   console.log(
-    "getting user" + " @ " + new Date() + "----------------------------------"
+    "updating user" + " @ " + new Date() + "----------------------------------"
   );
-  console.log(req.body);
   var data = req.body;
-
   //findOrCreate({query}, {document to insert}, [options], [callback])
-  User.findOrCreate({ publicAddress: data.publicAddress }, (err, result) => {
+  User.findOrCreate({ publicAddress: data.publicAddress }, {username: data.username}, (err, result) => {
     if(err){console.log(err);}
     console.log("successful find user by public address: ", result);
     res.status(200).send(result);

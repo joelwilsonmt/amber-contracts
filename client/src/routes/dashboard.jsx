@@ -16,6 +16,7 @@ import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+import RouteTesting from "views/RouteTesting/RouteTesting.jsx";
 import ServiceAgreement from "views/NewContracts/ServiceAgreement.jsx";
 import RainyDay from "views/NewContracts/RainyDay.jsx";
 
@@ -47,8 +48,15 @@ const dashboardRoutes = [
     navbarName: "Notifications",
     icon: Notifications,
     component: NotificationsPage
-  }
-  // { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
+  },
+  {
+    path: "/routetesting",
+    sidebarName: "Route Testing",
+    navbarName: "Route Testing",
+    icon: Notifications,
+    component: RouteTesting
+  },
+  { redirect: true, path: "/", to: "/dashboard", navbarName: "Redirect" }
 ];
 
 export default dashboardRoutes;
