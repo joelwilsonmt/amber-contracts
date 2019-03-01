@@ -24,7 +24,9 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 import avatar from "assets/img/faces/marc.jpg";
-
+import web3 from "utils/web3.js";
+import { EEXIST } from "constants";
+console.log(web3.version);
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -50,11 +52,57 @@ const styles = {
     marginTop: 16
   }
 };
+let factory;
+const address = "0x2134d55F7E7708F3EF434FD0Bb756459b608B76D";
+const abi = [
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "_depositor",
+        type: "address"
+      }
+    ],
+    name: "creator",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        name: "_newEscrow",
+        type: "address"
+      }
+    ],
+    name: "NewContract",
+    type: "event"
+  }
+];
 
 class ServiceAgreement extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    factory = new web3.eth.Contract(abi, address);
+    console.log("contract, ", factory);
+  }
+
+  handleClick = async () => {
+    let accounts = await web3.eth.getAccounts();
+    console.log("accounts", accounts);
+    let results = await factory.methods
+      .creator("0xEF4a23Eae7F2320082E5bc3b22995e9752e257BC")
+      .send({
+        from: accounts[0]
+      });
+    console.log("results", results);
+  };
   render() {
     return (
       <div>
@@ -101,7 +149,9 @@ class ServiceAgreement extends React.Component {
                 /> */}
               </CardBody>
               <CardFooter>
-                <Button color="danger">Deploy Contract</Button>
+                <Button onClick={this.handleClick} color="danger">
+                  Deploy Contract
+                </Button>
               </CardFooter>
             </Card>
           </GridItem>
