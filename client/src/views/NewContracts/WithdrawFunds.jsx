@@ -50,7 +50,7 @@ const styles = {
 }
 };
 
-class RainyDay extends React.Component {
+class WithdrawFunds extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -61,40 +61,13 @@ class RainyDay extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4>Rainy Day Contract</h4>
-                <p>Create New</p>
+                <h4>Withdraw Funds</h4>
               </CardHeader>
               <CardBody>
-               I, (input public key from database) am going to deposit
-               <br/>
-               <TextField
-                     id="ETH"
-                     label="Ether"
-                     margin="normal"
-                     variant="outlined"
-                     InputProps={{
-                     startAdornment: <InputAdornment position="start">Ξ</InputAdornment>,
-                   }}/>
-                   <br/>
-                   into this contract.
-                   <br/>
-                   <br/>
-                   <br/>
-                   When it rains in
-                   <br/>
-               <TextField
-                     id="Location"
-                     label="Location"
-                     margin="normal"
-                     variant="outlined"
-                   />
-              <br/>
-              The money will be released from the contract into my account.
-
-
+               Withdraw funds from this contract and relase to my account.
               </CardBody>
               <CardFooter>
-                <Button color="danger">Deploy Contract</Button>
+                <Button color="danger">Withdraw Funds</Button>
               </CardFooter>
             </Card>
           </GridItem>
@@ -104,4 +77,4 @@ class RainyDay extends React.Component {
   }
 }
 
-export default withStyles(styles)(RainyDay);
+export default withStyles(styles)(WithdrawFunds);

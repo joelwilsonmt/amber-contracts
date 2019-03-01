@@ -17,6 +17,7 @@ import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import ServiceAgreement from "views/NewContracts/ServiceAgreement.jsx";
+import RainyDay from "views/NewContracts/RainyDay.jsx";
 
 const dashboardRoutes = [
   {

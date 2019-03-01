@@ -17,7 +17,7 @@ const customInputStyle = {
       borderWidth: "1px !important"
     },
     "&:after": {
-      borderColor: primaryColor
+      borderColor: 'info'
     }
   },
   underlineError: {
@@ -45,12 +45,12 @@ const customInputStyle = {
   },
   feedback: {
     position: "absolute",
-    top: "18px",
+    top: "0",
     right: "0",
-    zIndex: "2",
+    zIndex: "0",
     display: "block",
     width: "24px",
-    height: "24px",
+    height: "0",
     textAlign: "center",
     pointerEvents: "none"
   },
@@ -62,6 +62,7 @@ const customInputStyle = {
     margin: "0 0 0 0",
     position: "relative"
   }
+
 };
 
 export default customInputStyle;

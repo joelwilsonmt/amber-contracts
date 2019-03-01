@@ -50,7 +50,7 @@ const styles = {
 }
 };
 
-class RainyDay extends React.Component {
+class PendingService extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -61,11 +61,16 @@ class RainyDay extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4>Rainy Day Contract</h4>
-                <p>Create New</p>
+                <h4>Pending Service Authorization</h4>
+                <p>Approve</p>
               </CardHeader>
               <CardBody>
-               I, (input public key from database) am going to deposit
+               (Data from database of service provider) created a Service Agreement for
+               for you.  The contract requires (ether input from contract). Please
+               approve the amount by entering it in the field below.  Then click the
+               Approve button.  The funds will be taken from your account and stored
+               in the contract.  They will not be released without your approval.
+               <br/>
                <br/>
                <TextField
                      id="ETH"
@@ -75,26 +80,17 @@ class RainyDay extends React.Component {
                      InputProps={{
                      startAdornment: <InputAdornment position="start">Ξ</InputAdornment>,
                    }}/>
-                   <br/>
-                   into this contract.
-                   <br/>
+
                    <br/>
                    <br/>
-                   When it rains in
                    <br/>
-               <TextField
-                     id="Location"
-                     label="Location"
-                     margin="normal"
-                     variant="outlined"
-                   />
-              <br/>
-              The money will be released from the contract into my account.
+                   <br/>
+                   <br/>
 
 
               </CardBody>
               <CardFooter>
-                <Button color="danger">Deploy Contract</Button>
+                <Button color="danger">Approve</Button>
               </CardFooter>
             </Card>
           </GridItem>
@@ -104,4 +100,4 @@ class RainyDay extends React.Component {
   }
 }
 
-export default withStyles(styles)(RainyDay);
+export default withStyles(styles)(PendingService);

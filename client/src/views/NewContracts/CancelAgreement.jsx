@@ -50,7 +50,7 @@ const styles = {
 }
 };
 
-class RainyDay extends React.Component {
+class CancelAgreement extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -61,40 +61,18 @@ class RainyDay extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <Card>
               <CardHeader color="danger">
-                <h4>Rainy Day Contract</h4>
-                <p>Create New</p>
+                <h4>Cancel Agreement</h4>
+                <p>Approve</p>
               </CardHeader>
               <CardBody>
-               I, (input public key from database) am going to deposit
+               This contract will not be able to be completed.  I will terminate
+               the contract and the funds will return to the person who deposited them.
                <br/>
-               <TextField
-                     id="ETH"
-                     label="Ether"
-                     margin="normal"
-                     variant="outlined"
-                     InputProps={{
-                     startAdornment: <InputAdornment position="start">Ξ</InputAdornment>,
-                   }}/>
-                   <br/>
-                   into this contract.
-                   <br/>
-                   <br/>
-                   <br/>
-                   When it rains in
-                   <br/>
-               <TextField
-                     id="Location"
-                     label="Location"
-                     margin="normal"
-                     variant="outlined"
-                   />
-              <br/>
-              The money will be released from the contract into my account.
-
+               <br/>
 
               </CardBody>
               <CardFooter>
-                <Button color="danger">Deploy Contract</Button>
+                <Button color="danger">Cancel Agreement</Button>
               </CardFooter>
             </Card>
           </GridItem>
@@ -104,4 +82,4 @@ class RainyDay extends React.Component {
   }
 }
 
-export default withStyles(styles)(RainyDay);
+export default withStyles(styles)(CancelAgreement);
