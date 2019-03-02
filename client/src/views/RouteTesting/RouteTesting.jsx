@@ -104,6 +104,11 @@ class RouteTesting extends React.Component {
   handleDeployForm = (event) => {
     event.preventDefault();
     console.log("contract deployed");
+    const toAddress = 'adressofrecipient';
+    const fromAddress = this.state.publicAddress;
+    const getUser = 'http://localhost:3001/getUser';
+    //TODO: create contract object to pass to the addcontract route
+    //
   }
   render() {
     const { classes } = this.props;
@@ -111,16 +116,16 @@ class RouteTesting extends React.Component {
       <Card>
         <h1>A central place to test all the routes</h1>
         <p>They will be as follows:</p>
-        <ul>
+        <ol>
           <li>(x)Check if user is in database on mount, create if not - return user object</li>
           <li>(x)If user.username is null, prompt for a username and access updateUser route</li>
-          <li>()When a contract is deployed, access addContract route (twice)</li>
+          <li>()When a contract is deployed, access addContract route (twice) - can just use web3 contract object and extract values?</li>
           <li>()Send addContract(fromAddress) - this one sets userRole: "from", contractStatus: "pendingPayment"</li>
           <li>()Send addContract(toAddress) - this one sets userRole: "to", contractStatus: "pendingPayment"</li>
           <li>()Send updateContract(contractAddress) - this one sets contractStatus: "paymentAdded"</li>
           <li>()Send updateContract(contractAddress) - this one sets contractStatus: "servicesDelivered"</li>
           <li>()Maybe make some of the above event listeners, or more reliant on the app?</li>
-        </ul>
+        </ol>
         <p>Username: {this.state.username ? this.state.username : "Username Not Provided"}</p>
         {this.state.usernameProvided ? null :
           <form onSubmit={this.handleSubmitUsername}>
