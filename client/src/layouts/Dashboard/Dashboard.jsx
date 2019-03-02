@@ -22,6 +22,8 @@ import RainyDay from "views/NewContracts/RainyDay.jsx";
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 import web3 from "utils/web3.js";
+import { Web3Provider } from 'react-web3';
+import PropTypes from 'prop-types';
 {
   /*
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
@@ -83,6 +85,8 @@ class App extends React.Component {
     const { classes, ...rest } = this.props;//assigns classes to containing divs for automatic styling
     return (
       <div className={classes.wrapper}>
+        <Web3Provider>
+
         <Sidebar
           routes={dashboardRoutes}
           logo={"https://i.imgur.com/UdI5yFK.png"}
@@ -106,6 +110,8 @@ class App extends React.Component {
             </div>
         <Footer />
         </div>
+      </Web3Provider>
+
       </div>
     );
   }
