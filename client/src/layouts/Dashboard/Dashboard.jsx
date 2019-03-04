@@ -23,7 +23,7 @@ import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 import web3 from "utils/web3.js";
 import { Web3Provider } from 'react-web3';
-import PropTypes from 'prop-types';
+
 {
   /*
 // const web3 = new Web3(Web3.givenProvider || "http://localhost:8545");
