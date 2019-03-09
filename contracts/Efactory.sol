@@ -1,12 +1,12 @@
 pragma solidity >=0.4.0<0.6.0;
 
-import "./dumb.sol";
+import "./serviceAgreement.sol";
 
-contract EFactory {
+contract CreateDeployServiceAgreement {
     event NewContract(address _newEscrow);
 
-    function creator(address payable _depositor) public {
-        address _newEscrow = address(new Dumb(_depositor, msg.sender));
+    function create_and_deploy_service_agreement(address payable _depositor) public {
+        address _newEscrow = address(new ServiceAgreement(_depositor, msg.sender));
         emit NewContract(_newEscrow);
     }
 
