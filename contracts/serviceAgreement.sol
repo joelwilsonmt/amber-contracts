@@ -8,19 +8,20 @@ contract ServiceAgreement{
     //Global
     address payable depositor;
     address payable creator;
+    uint256 requestAmount;
     bool finished;
 
     //Events
-    event Deposited(address indexed payee, uint256 weiAmount);
+    event Deposited(address indexed despositor, uint256 weiAmount);
     event Withdrawn(address indexed creator, uint256 weiAmount);
     event NextAction(string);
     event FINISHED(bool);
 
-    mapping(address => uint256) private _deposits;
 
-    constructor(address payable _depositor, address payable _creator)public{
+    constructor(address payable _depositor, address payable _creator, uint256 _requestAmount )public{
         depositor = _depositor;
         creator = _creator;
+        requestAmount = _requestAmount;
         finished = false;
     }
 
@@ -34,10 +35,10 @@ contract ServiceAgreement{
         _;
     }
 
-    function deposit_funds(address payee) public payable isDepositor{
+    function deposit_funds() public payable isDepositor{
+        require(msg.value == requestAmount);
         uint256 amount = msg.value;
-        _deposits[payee] = _deposits[payee].add(amount);
-        emit Deposited(payee, amount);
+        emit Deposited(msg.sender, amount);
         emit NextAction("agree_upon_services_delievered");
     }
 
@@ -59,19 +60,15 @@ contract ServiceAgreement{
         selfdestruct(depositor);
     }
 
-    function getBalance() public view returns(uint256){
+    function get_balance() public view returns(uint256){
         return address(this).balance;
     }
 
-    function seeOwner() public view returns(address){
+    function see_owner() public view returns(address){
         return creator;
     }
 
-    function seeDepositor() public view returns(address){
+    function see_depositor() public view returns(address){
         return depositor;
     }
-
-    function depositsOf(address payee) public view returns (uint256) {
-        return _deposits[payee];
-    }
-}
+  }
