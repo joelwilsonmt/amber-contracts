@@ -14,7 +14,7 @@ contract ServiceAgreement{
     //Events
     event Deposited(address indexed despositor, uint256 weiAmount);
     event Withdrawn(address indexed creator, uint256 weiAmount);
-    event NextAction(string);
+    event NextAction(string, address indexed actionToo);
     event FINISHED(bool);
 
 
@@ -39,13 +39,13 @@ contract ServiceAgreement{
         require(msg.value == requestAmount);
         uint256 amount = msg.value;
         emit Deposited(msg.sender, amount);
-        emit NextAction("agree_upon_services_delievered");
+        emit NextAction("agree_upon_services_delivered", depositor);
     }
 
      function agree_upon_services_delievered() public payable isDepositor{
         finished = true;
         emit FINISHED(finished);
-        emit NextAction("withdraw_and_terminate_contract");
+        emit NextAction("withdraw_and_terminate_contract", creator);
     }
 
     function withdraw_and_terminate_contract() public payable isOwner {
@@ -71,4 +71,4 @@ contract ServiceAgreement{
     function see_depositor() public view returns(address){
         return depositor;
     }
-  }
+}
