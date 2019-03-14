@@ -13,7 +13,7 @@ contract ServiceAgreement{
 
     //Events
     event Deposited(address depositor, uint256 weiAmount);
-    event Withdrawn(address creator, uint256 weiAmount);
+    event Destroyed(address creator,address depositor, string action);
     event NextAction(address actionTo, string action);
     event FINISHED(bool);
 
@@ -50,9 +50,8 @@ contract ServiceAgreement{
 
     function withdraw_and_terminate_contract() public payable isOwner {
         require(finished == true);
-        uint256 balance = address(this).balance;
         address(creator).transfer(address(this).balance);
-        emit Withdrawn(creator, balance);
+        emit Destroyed(creator, depositor, "this_contract_is_Complete");
         selfdestruct(depositor);
     }
 
