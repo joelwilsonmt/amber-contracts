@@ -18,10 +18,10 @@ contract ServiceAgreement{
     event FINISHED(bool);
 
 
-    constructor(address payable _depositor, address payable _creator, uint256 _requestAmount )public{
+    constructor(address payable _depositor, address payable _creator, uint256 _request_amount )public{
         depositor = _depositor;
         creator = _creator;
-        requestAmount = _requestAmount;
+        requestAmount = _request_amount;
         finished = false;
     }
 
